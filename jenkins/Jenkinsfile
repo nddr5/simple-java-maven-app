@@ -3,13 +3,12 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                //sh 'mvn -B -DskipTests clean package'
-                sh 'echo Build'
+                sh 'mvn -B -DskipTests clean package'
             }
         }
         stage('Test') {
             steps {
-                sh 'mvn verify -Dsonar.host.url=http://sonarqube:9000'
+                sh 'mvn sonar:sonar -Dsonar.host.url=http://sonarqube:9000'
             }
             post {
                 always {
