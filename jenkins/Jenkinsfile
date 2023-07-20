@@ -9,7 +9,7 @@ pipeline {
         }
         stage('Test') {
             steps {
-                sh 'mvn clean verify -Dsonar.host.url=http://sonarqube:9000'
+                sh 'mvn verify -Dsonar.host.url=http://sonarqube:9000'
             }
             post {
                 always {
